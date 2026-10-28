@@ -1,0 +1,23 @@
+tuoi = 25
+so_du = 0.0
+tien_gui = 60000000
+lai_suat = 0.10
+tang_tien_gui = 0.08
+muc_tieu = 10000000000
+nam = 0
+
+print("=== BÁO CÁO MÔ PHỎNG KẾ HOẠCH HƯU TRÍ TỰ ĐỘNG ===")
+print(f"Mục tiêu tài sản: {muc_tieu:,.0f} VNĐ\n")
+print(f"{'Năm':>4} | {'Tuổi':>4} | {'Tiền gửi mới':>20} | {'Tiền lãi phát sinh':>20} | {'Tài sản cuối năm':>22}")
+print("-" * 83)
+
+while so_du < muc_tieu:
+    nam += 1
+    tien_lai = so_du * lai_suat
+    so_du = so_du + tien_lai + tien_gui
+    print(f"{nam:>4} | {tuoi:>4} | {tien_gui:>16,.0f} VNĐ | {tien_lai:>16,.0f} VNĐ | {so_du:>18,.0f} VNĐ")
+    tien_gui *= 1 + tang_tien_gui    # năm sau gửi nhiều hơn 8%
+    tuoi += 1
+
+print("-" * 83)
+print(f"KẾT LUẬN: Khách hàng sẽ đạt mục tiêu nghỉ hưu sau {nam} năm (lúc {tuoi} tuổi).")
